@@ -1,0 +1,39 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  # Load all SDK classes
+  Uno\EventSdk\:
+    resource: '../../*'
+    autowire: true
+    autoconfigure: true
+
+  # Registry service
+  Uno\EventSdk\Subscriber\EventSubscriberRegistry: ~
+
+  # Publisher binding
+  Uno\EventSdk\Contract\EventPublisherInterface:
+    class: Uno\EventSdk\Publisher\MessengerEventPublisher
+    arguments:
+      $defaultMetadata: '%uno_event_sdk.default_metadata%'
+
+  # SDK Exception Listener
+  Uno\EventSdk\EventListener\ApiExceptionListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.exception }
+
+  # Example subscriber
+  Uno\EventSdk\Subscriber\HttpApiEventSubscriber:
+    arguments:
+      $logsUrl: '%uno_event_sdk.logs_url%'
+    tags:
+      - { name: uno_event_sdk.subscriber, event: '*' }
+
+  # Handler (VERY IMPORTANT)
+  Uno\EventSdk\Subscriber\EventMessageHandler:
+    arguments:
+      $registry: '@Uno\EventSdk\Subscriber\EventSubscriberRegistry'
+      $logger: '@logger'
+    tags:
+      - { name: messenger.message_handler }
