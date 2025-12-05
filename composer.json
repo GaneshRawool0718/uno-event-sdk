@@ -3,16 +3,11 @@
     "description": "Reusable Symfony Event SDK with Publisher, Subscriber, and Messenger integration",
     "type": "symfony-bundle",
     "license": "MIT",
+    "homepage": "https://github.com/GaneshRawool0718/uno-event-sdk",
 
     "autoload": {
         "psr-4": {
             "Uno\\EventSdk\\": "src/"
-        }
-    },
-
-    "autoload-dev": {
-        "psr-4": {
-            "Uno\\EventSdk\\Tests\\": "tests/"
         }
     },
 
@@ -31,5 +26,7 @@
     },
 
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+
+    "keywords": ["symfony", "event", "sdk", "messenger", "publisher", "subscriber"]
 }
