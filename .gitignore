@@ -1,0 +1,7 @@
+# ----------------------
+# Composer dependencies
+# ----------------------
+/vendor/
+
+# Composer lock (SHOULD NOT be committed in libraries)
+composer.lock
