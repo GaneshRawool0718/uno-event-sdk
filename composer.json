@@ -1,0 +1,35 @@
+{
+    "name": "uno/event-sdk",
+    "description": "Reusable Symfony Event SDK with Publisher, Subscriber, and Messenger integration",
+    "type": "symfony-bundle",
+    "license": "MIT",
+
+    "autoload": {
+        "psr-4": {
+            "Uno\\EventSdk\\": "src/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Uno\\EventSdk\\Tests\\": "tests/"
+        }
+    },
+
+    "require": {
+        "php": ">=7.4",
+        "symfony/framework-bundle": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+        "symfony/messenger": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+        "symfony/http-client": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+        "psr/log": "^1.1 || ^2.0 || ^3.0"
+    },
+
+    "extra": {
+        "symfony": {
+            "bundle": "Uno\\EventSdk\\UnoEventSdkBundle"
+        }
+    },
+
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
